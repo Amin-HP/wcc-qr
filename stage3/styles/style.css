@@ -1,0 +1,15 @@
+.thumbnail{
+    width: 200px;
+    height: 200px;
+}
+.page{
+    height: 100vh;
+    text-align: center;
+    position: relative;
+}
+.holder{
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+}

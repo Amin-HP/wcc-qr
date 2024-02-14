@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stage2</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+    <!-- include A-Frame obviously -->
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script>
+
+    </script>
+</head>
+<body>
+    <a-scene id="a-scene" vr-mode-ui="enabled: false">
+        <!-- Skybox -->
+        <a-sky color="#9fbfff"></a-sky>
+  
+        <!-- Camera -->
+
+        <a-camera fov="5"  position="0 0 20" look-controls-enabled="false"></a-camera>
+        <!-- <a-entity camera position="0 0 5"></a-entity> -->
+        <!-- Lights -->
+        <a-entity light="type: ambient; color: #EEE"></a-entity>
+        <a-entity light="type: point; intensity: 0.35; distance: 50; decay: 2" position="0 10 0"></a-entity>
+        <a-entity light="type: directional; color: #FFF; intensity: 0.4" position="-0.5 1 1"></a-entity>
+  
+        <!-- Models -->
+        <a-assets>
+            <a-asset-item id="qr" src="../assets/qr.gltf"></a-asset-item>
+          <!-- <a-asset-item id="s-obj" src="resource/model.obj"></a-asset-item>
+          <a-asset-item id="s-mtl" src="resource/model.mtl"></a-asset-item> -->
+        </a-assets>
+        <a-entity id="model-parent" position="0 0 0" rotation="0 0 0">
+          <a-gltf-model id="a-model"
+            src="#qr"
+            position="0 0 0"
+            scale="0.1 0.1 0.1"
+            rotation="0 0 0" model-loader>
+          </a-gltf-model>
+          <a-plane position="0 -0.01 0" rotation="90 0 0" width="1" height="1" color="#7BC8A4"></a-plane>
+        </a-entity>
+        
+      </a-scene>
+  
+    <script src="scripts/script.js"></script>
+</body>
+</html>

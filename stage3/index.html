@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>stage3</title>
+    <script src="https://cdn.jsdelivr.net/npm/simple-parallax-js@5.5.1/dist/simpleParallax.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+   
+</head>
+
+<body>
+    <div class="page">
+       
+    </div>
+    
+    <div class="page">
+        <img class="thumbnail thumbnail0" src="../assets/qr-code.png" alt="image">
+        <img class="thumbnail thumbnail1" src="../assets/qr-code.png" alt="image">
+        <img class="thumbnail thumbnail2" src="../assets/qr-code.png" alt="image">
+    </div>
+    <div class="page">
+       
+    </div>
+
+    <script>
+        var image = document.getElementsByClassName('thumbnail0');
+        new simpleParallax(image, {
+            orientation: 'right'
+        });
+        var image = document.getElementsByClassName('thumbnail1');
+        new simpleParallax(image, {
+            orientation: 'left'
+        });
+        var image = document.getElementsByClassName('thumbnail2');
+        new simpleParallax(image, {
+            orientation: 'top'
+        });
+    </script>
+</body>
+</html>
