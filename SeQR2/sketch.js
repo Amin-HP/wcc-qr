@@ -60,7 +60,7 @@ function preload() {
 let qrRoll = Math.random()
 
 if(qrRoll <= 0.5){
-  bg = loadImage("assets/qr6.png");
+  bg = loadImage("assets/qrStage2.png");
 }else if(qrRoll > 0.5 && qrRoll <=1){
   bg = loadImage("assets/qrStage2.png");
 } 
