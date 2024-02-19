@@ -8,29 +8,34 @@
     <!-- include A-Frame obviously -->
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
     <script>
-
+      
     </script>
 </head>
 <body>
-    <a-scene id="a-scene" vr-mode-ui="enabled: false">
+    <a-scene id="a-scene" xr-mode-ui="enabled: false" >
+       <!-- Models -->
+       <a-assets>
+          <a-asset-item id="qr" src="../assets/qr.gltf"></a-asset-item>
+          <!-- <a-asset-item id="fof" src="../assets/Fear of Fireworks.mp3" preload="auto"></a-asset-item> -->
+          <audio id="sound" src="../assets/Fear of Fireworks.mp3"></audio>
+          <!-- <a-asset-item id="s-obj" src="resource/model.obj"></a-asset-item>
+          <a-asset-item id="s-mtl" src="resource/model.mtl"></a-asset-item> -->
+        </a-assets>
+        <a-sound src="#sound" autoplay="false"></a-sound>
         <!-- Skybox -->
         <a-sky color="#9fbfff"></a-sky>
   
         <!-- Camera -->
 
-        <a-camera fov="5"  position="0 0 20" look-controls-enabled="false"></a-camera>
+        <a-camera fov="5"  position="0 0 25" look-controls-enabled="false"></a-camera>
         <!-- <a-entity camera position="0 0 5"></a-entity> -->
         <!-- Lights -->
         <a-entity light="type: ambient; color: #EEE"></a-entity>
         <a-entity light="type: point; intensity: 0.35; distance: 50; decay: 2" position="0 10 0"></a-entity>
         <a-entity light="type: directional; color: #FFF; intensity: 0.4" position="-0.5 1 1"></a-entity>
   
-        <!-- Models -->
-        <a-assets>
-            <a-asset-item id="qr" src="../assets/qr.gltf"></a-asset-item>
-          <!-- <a-asset-item id="s-obj" src="resource/model.obj"></a-asset-item>
-          <a-asset-item id="s-mtl" src="resource/model.mtl"></a-asset-item> -->
-        </a-assets>
+        <!-- <a-sound src="../assets/Fear of Fireworks.mp3" autoplay="false" id="audio"></a-sound> -->
+        <!-- <a-entity id="audio" sound="src: #fof" autoplay="true"></a-entity> -->
         <a-entity id="model-parent" position="0 0 0" rotation="0 0 0">
           <a-gltf-model id="a-model"
             src="#qr"
@@ -42,7 +47,26 @@
         </a-entity>
         
       </a-scene>
-  
+    <script>
+       // Add event listener to the play button
+       document.getElementById('a-scene').addEventListener('click', function() {
+        // Get the audio element
+        console.log("asdasd");
+        var audio = document.querySelector('a-sound');
+        console.log('Audio element:', audio); // Log the audio element to check if it's correctly retrieved
+        
+        // Check if the audio is paused
+        if (audio.components.sound.paused) {
+          // If paused, play the sound
+          audio.components.sound.playSound();
+          console.log('Sound played');
+        } else {
+          // If playing, pause the sound
+          audio.components.sound.pauseSound();
+          console.log('Sound paused');
+        }
+      });
+    </script>
     <script src="scripts/script.js"></script>
 </body>
 </html>

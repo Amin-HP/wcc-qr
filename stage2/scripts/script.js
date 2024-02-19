@@ -2,6 +2,15 @@ AFRAME.registerComponent('model-loader', {
     init: function () {
       this.el.addEventListener('model-loaded', function () {
         console.log('Finish model load');
+        // document.getElementById('a-scene').addEventListener('click', function() {
+        //   var audio = document.getElementById('audio');
+        //   console.log(audio)
+        //   if (audio.paused) {
+        //     audio.play();
+        //   } else {
+        //     audio.pause();
+        //   }
+        // });
         $("#loading").hide();
       });
     }
@@ -50,3 +59,5 @@ AFRAME.registerComponent('model-loader', {
       }
     });
   });
+
+
